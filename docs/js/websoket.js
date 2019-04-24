@@ -22,6 +22,7 @@ $(function () {
         })
 
         claenBtn.on('click', () => {
+            content ="";
             outPut.empty();
         })
     }
@@ -29,6 +30,14 @@ $(function () {
     webSocket.onopen = function (evt) {
         console.log("已建立連線!");
     }
+
+    webSocket.onclose = function(evt){
+        console.log("連線結束!")
+    }
+
+    webSocket.onerror = function(evt) {
+        console.error("evt")
+    };
 
     webSocket.onmessage = function (evt) {
         outPut.empty();
