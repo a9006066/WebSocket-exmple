@@ -3,7 +3,7 @@
 $(function () {
     let content = "";
 
-    let wsUrl = 'ws://echo.websocket.org';
+    let wsUrl = 'wss://echo.websocket.org';
 
     let outPut = $("#output");
 
