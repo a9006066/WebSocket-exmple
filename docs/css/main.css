@@ -1,0 +1,29 @@
+.main{
+    position: relative;
+    max-width: 900px;
+    /* max-height: 900px; */
+    margin: 0 auto;
+}
+h1{
+    text-align: center;
+}
+
+.content{
+  width: 600px;
+  height: 600px;
+  border: solid 1px lightgray;
+  background-color:white;
+  margin:  0 auto;
+  overflow: auto;
+}
+
+.input{
+    position: relative;
+    margin-left:150px;
+    width: 600px;
+    background-color:#ffa500;
+}
+
+#output{
+    margin-top: 5px;
+}
