@@ -1,6 +1,6 @@
 
+function setup() {
 
-$(function () {
     let content = "";
 
     let wsUrl = 'wss://echo.websocket.org';
@@ -11,51 +11,80 @@ $(function () {
 
     let btn = $("#btn");
 
+    let connetionBtn = $("#conntionBtn");
+
+    let closeBtn = $("#closeBtn")
+
     let claenBtn = $("#claenBtn");
 
-    init()
+    let status = $("#status");
 
-    function init() {
+    //連線
+    connetionBtn.on('click', () => {
+
+        console.log("CONNECT:" + wsUrl);
+
         webSocket = new WebSocket(wsUrl);
-        btn.on('click', () => {
-            webSocket.send(input.val());
-        })
 
-        claenBtn.on('click', () => {
-            content ="";
+        webSocket.onopen = function (evt) {
+            status.text("已建立連線!");
+            // console.log("已建立連線!");
+        }
+
+        webSocket.onclose = function (evt) {
+            status.text("連線結束!");
+            // console.log("連線結束!")
+        }
+
+        webSocket.onerror = function (evt) {
+            console.error("evt")
+        };
+
+        webSocket.onmessage = function (evt) {
             outPut.empty();
-        })
-    }
+            content += "<p>發言:" + evt.data + "</p>";
+            outPut.append(content)
+        }
+    })
 
-    webSocket.onopen = function (evt) {
-        console.log("已建立連線!");
-    }
+    //發送
+    btn.on('click', () => {
+        webSocket.send(input.val());
+    })
 
-    webSocket.onclose = function(evt){
-        console.log("連線結束!")
-    }
-
-    webSocket.onerror = function(evt) {
-        console.error("evt")
-    };
-
-    webSocket.onmessage = function (evt) {
+    //清除
+    claenBtn.on('click', () => {
+        content = "";
         outPut.empty();
-        content += "<p>發言:" + evt.data + "</p>";
-        outPut.append(content)
-    }
+    })
+
+    closeBtn.on('click',()=>{
+        webSocket.close();
+    })
 
 
+}
 
-
-
-
-
-
-
-
-
-
+$(()=>{
+    setup()
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

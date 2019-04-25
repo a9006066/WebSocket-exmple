@@ -7,6 +7,11 @@
 h1{
     text-align: center;
 }
+#menu{
+    width: 600px;
+    position: relative;
+    left:150px;
+}
 
 .content{
   width: 600px;
@@ -26,4 +31,8 @@ h1{
 
 #output{
     margin-top: 5px;
+}
+
+#status{
+    color:red;
 }

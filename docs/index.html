@@ -12,7 +12,14 @@
 <body>
     <div class="main">
         <h1>WebSocket範例</h1>
-        <div class="content">
+
+        <div id="menu" >
+            <button id="conntionBtn">連線</button>
+            <button id="closeBtn">關閉</button><br><br>
+            <label> 狀態: </label><span id="status"></span>
+        </div>
+
+        <div class="content" style="margin-top:20px">
             <div id="output"></div>
         </div>
 
@@ -21,7 +28,7 @@
             <label for="input">輸入內容:</label>
             <input id="input" name='input' type="text">
             <button id="btn">送出</button>
-            <button id ='claenBtn'>清除</button>
+            <button id='claenBtn'>清除</button>
         </div>
     </div>
 
